@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -10,9 +12,23 @@ const weatherApiRouter = require('./routes/api/weather')
 
 var app = express();
 
+// Configurar cabeceras y cors
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
+});
+
+// middleware
+app.use(bodyParser.json()); 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.set('trust proxy', true)
 
 app.use(logger('dev'));
 app.use(express.json());
