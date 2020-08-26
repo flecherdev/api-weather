@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const WeatherService  = require('../../services/weather')
+const weather = new WeatherService()
 
 /** 
  * 
@@ -14,28 +16,37 @@ const router = express.Router()
  * 
  */
 
+router.get('/location',async function(req, res, next){
+    var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
 
-router.get('/location', function(req, resp){
-    const data = "informacion de location"
-    req.status(200).json({
-        data: data,
-        message: 'location ip-api'
-    })
+    try {
+        const response = await weather.getLocation(ip)
+        res.status(200).json({
+            data: response,
+            message: 'location ip-api'
+        })
+    } catch (error) {
+        next(error)
+    }
+
 })
 
-router.get('/current/:city', function(req, resp){
+router.get('/current/:city?', function(req, res){
     const { city } = req.params
+    console.log(city)
     const data = "informacion current"
-    req.status(200).json({
+    res.status(200).json({
         data: data,
+        city: city,
         message: 'current ip-api'
     })
 })
 
-router.get('/forecast/:city', function(req, resp){
-
+router.get('/forecast/:city?', function(req, res){
+    const { city } = req.params
+    console.log(city)
     const data = "informacion de forecast"
-    req.status(200).json({
+    res.status(200).json({
         data: data,
         message: 'forecast ip-api'
     })
