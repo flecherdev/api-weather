@@ -23,7 +23,7 @@ router.get('/location',async function(req, res, next){
         const response = await weather.getLocation(ip)
         res.status(200).json({
             data: response,
-            message: 'location ip-api'
+            message: 'location'
         })
     } catch (error) {
         next(error)
@@ -31,25 +31,34 @@ router.get('/location',async function(req, res, next){
 
 })
 
-router.get('/current/:city?', function(req, res){
+router.get('/current/:city?', async function(req, res, next){
+    var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
     const { city } = req.params
-    console.log(city)
-    const data = "informacion current"
-    res.status(200).json({
-        data: data,
-        city: city,
-        message: 'current ip-api'
-    })
+
+    try {
+        const response = await weather.getCurrent(ip, city) 
+        res.status(200).json({
+            data: response,
+            message: 'current'
+        })
+    } catch (error) {
+        next(error)
+    }
 })
 
-router.get('/forecast/:city?', function(req, res){
+router.get('/forecast/:city?', async function(req, res, next){
+    var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
     const { city } = req.params
-    console.log(city)
-    const data = "informacion de forecast"
-    res.status(200).json({
-        data: data,
-        message: 'forecast ip-api'
-    })
+
+    try {
+        const response = await weather.getForecast(ip, city)
+        res.status(200).json({
+            data: response,
+            message: 'current'
+        })
+    } catch (error) {
+        next(error)
+    }
 })
 
 module.exports = router
