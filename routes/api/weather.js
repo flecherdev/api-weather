@@ -18,12 +18,16 @@ const weather = new WeatherService()
 
 router.get('/location',async function(req, res, next){
     // var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
-    var ip = req.connection.remoteAddress;
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    console.log(ip)
+
+    // var ip = req.connection.remoteAddress;
 
     try {
         const response = await weather.getLocation(ip)
         res.status(200).json({
             data: response,
+            ip: ip,
             message: 'location'
         })
     } catch (error) {

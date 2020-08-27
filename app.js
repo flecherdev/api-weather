@@ -30,7 +30,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // app.set('trust proxy', true)
-app.set('trust proxy', '8.8.8.8');
+// app.set('trust proxy', '8.8.8.8');
+app.enable('trust proxy')
 
 app.use(logger('dev'));
 app.use(express.json());
