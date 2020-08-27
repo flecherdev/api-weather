@@ -4,15 +4,12 @@ class IpApiService {
     constructor() {}
 
     async getLocation(ip) {
-        // const mip = '181.28.65.11'
-
         try {
-            const response = await axios.get(`https://ipapi.co/${mip}/json/`);
+            const response = await axios.get(`https://ipapi.co/${ip}/json/`);
             return Promise.resolve(response.data)
         } catch (error) {
             console.log(error)
         }
-        
     }
 
 }

@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const WeatherService  = require('../../services/weather')
 const weather = new WeatherService()
+const publicIp = require('public-ip');
 
 /** 
  * 
@@ -17,11 +18,7 @@ const weather = new WeatherService()
  */
 
 router.get('/location',async function(req, res, next){
-    // var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    console.log(ip)
-
-    // var ip = req.connection.remoteAddress;
+    var ip = await publicIp.v4()
 
     try {
         const response = await weather.getLocation(ip)
@@ -37,7 +34,7 @@ router.get('/location',async function(req, res, next){
 })
 
 router.get('/current/:city?', async function(req, res, next){
-    var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
+    var ip = await publicIp.v4()
     const { city } = req.params
 
     try {
@@ -52,7 +49,7 @@ router.get('/current/:city?', async function(req, res, next){
 })
 
 router.get('/forecast/:city?', async function(req, res, next){
-    var ip = req.ip['x-forwarded-for'] || req.connection.remoteAddress;
+    var ip = await publicIp.v4()
     const { city } = req.params
 
     try {

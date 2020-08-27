@@ -11,7 +11,6 @@ class WeatherService {
 
     async getLocation(ip) {
         const responseIpApi = await this.ipApiService.getLocation(ip)
-        console.log(responseIpApi)
 
         const response = await axios.get(`
         https://api.openweathermap.org/data/2.5/weather?q=${responseIpApi.city}&appid=${config.key_openWeather}`);
