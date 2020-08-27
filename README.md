@@ -1,12 +1,24 @@
 ## Proyecto de api con Node/express para consultar el clima
 
-# Dependencias
+# EndPoints
+- En el directorio /routes/api/weather.js
+Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js quien a su vez consume el servicio de /services/ipapi.js
+
+
+# Api utilizadas
+- Se utiliza ipapi para obtener: ciudad, latitud y longitud mediante la ip. 
+https://ipapi.co/api/#introduction
+
+- Se utiliza openweathermap para obtener el clima mediante los datos que proporciona ipapi (ciudad, latitud y logitud)
+https://openweathermap.org/
+
+## Dependencias
 dependencias instaladas
 axios: npm install axios 
 body-parser: npm install body-parser
 dotenv: npm i -S dotenv
 public-ip: npm install public-ip
 
-## Correr el proyecto
+## Ejecucio del proyecto
 run the app:
      $ DEBUG=api-weather:* npm start
