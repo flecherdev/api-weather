@@ -18,6 +18,7 @@ dependencias instaladas
 - dotenv: npm i -S dotenv (variables de entorno)
 - public-ip: npm install public-ip (obtener ip)
 - sentry: npm install --save @sentry/node (manejo de log de errores)
+- test: npm i -D supertest mocha sinon proxyquire 
 
 ## Ejecucio del proyecto
 run the app:
