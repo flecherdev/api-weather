@@ -21,6 +21,7 @@ router.get('/location',async function(req, res, next){
     var ip = await publicIp.v4()
 
     try {
+        // myUndefinedFunction();
         const response = await weather.getLocation(ip)
         res.status(200).json({
             data: response,
