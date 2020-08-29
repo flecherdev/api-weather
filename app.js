@@ -44,7 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/v1', weatherApiRouter);
+// capp.use('/v1', weatherApiRouter);
+weatherApiRouter(app)
 
 // redirect 
 app.get('/', function(req, res){
