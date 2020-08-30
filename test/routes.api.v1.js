@@ -10,13 +10,13 @@ const { forecastMock, WeatherServiceForecastMock } = require('../utils/mocks/for
 const testServer = require('../utils/testServer')
 
 // test location
-describe("routes - v1 - location",async function(){
+describe("routes - v1 - location", function(){
     //proxyquire
     const route = proxyquire("../routes/api/weather", {
         '../../services/weather': WeatherServiceLocationMock
     })
 
-    const request = await testServer(route)
+    const request = testServer(route)
 
     describe('GET /location', function(){
         it('should respond with status 200', function(done){

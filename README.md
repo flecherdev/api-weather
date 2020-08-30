@@ -10,8 +10,8 @@
 | [Get forecast](#Get-forecast) | GET | /v1/forecast[/ciudad] |
 
 
-- En el directorio /routes/api/weather.js
-Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js que se conecta con la api de openweathermap pero antes consume el servicio de /services/ipapi.js que por medio de la ip proporciona los datos para utilizar en openweathermap.
+- En el directorio /routes/api/weather.js.
+Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js que se conecta con la api de openweathermap pero antes consume el servicio de /services/ipapi.js que por medio de la ip proporciona los datos necesario para utilizar en openweathermap.
 
 # Get location
 
@@ -346,14 +346,14 @@ https://openweathermap.org/
 
 ## Dependencias
 dependencias instaladas
-- axios: npm install axios 
+- axios: npm install axios (client http)
 - body-parser: npm install body-parser ( middleware )
 - dotenv: npm i -S dotenv (variables de entorno)
 - public-ip: npm install public-ip (obtener ip)
 - sentry: npm install --save @sentry/node (manejo de log de errores)
 - test: npm i -D supertest mocha sinon proxyquire 
 
-## Ejecucio del proyecto
+## Ejecucio del proyecto y test
 run the app:
      DEBUG=api-weather:* npm start
 
