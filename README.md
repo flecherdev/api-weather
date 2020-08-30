@@ -11,7 +11,7 @@
 
 
 - En el directorio /routes/api/weather.js.
-Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js que se conecta con la api de openweathermap pero antes consume el servicio de /services/ipapi.js que por medio de la ip proporciona los datos necesario para utilizar en openweathermap.
+Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js que se conecta con la api de openweathermap pero antes consume el servicio de /services/ipapi.js que por medio de la ip proporciona los datos necesario que se utilizan en openweathermap.
 
 # Get location
 
@@ -343,6 +343,14 @@ https://ipapi.co/api/#introduction
 
 - Se utiliza openweathermap para obtener el clima mediante los datos que proporciona ipapi (ciudad, latitud y logitud)
 https://openweathermap.org/
+
+## Congiguracion
+- En el archivo .env se debe ingresar la clave de openweatherma para poder consultar la api
+KEY_OPENWEATHER='YOU_KEY'
+
+- Es una configuracion adicional de seguimiento de log de errores, no es necesaria para el uso de la api.
+SENTRY_DNS='YOU_KEY'
+SENTRY_ID='YOU_ID'
 
 ## Dependencias
 dependencias instaladas
