@@ -1,10 +1,13 @@
-## Proyecto de api con Node/express para consultar el clima
+# Proyecto de api con Node/express para consultar el clima
 
-# EndPoints
+## EndPoints
 - En el directorio /routes/api/weather.js
-Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js quien a su vez consume el servicio de /services/ipapi.js
+Se encuentran los endpoint que se utilizaran para realizar las consultas que retornaran la informacion en formato json. Desde la api consume los servicios de /services/weather.js que se conecta con la api de openweathermap pero antes consume el servicio de /services/ipapi.js que por medio de la ip proporciona los datos para utilizar en openweathermap.
 
-# Api utilizadas
+## Utils
+- En el directorio /utils/ encontramos los mocks y testServer que se utilizanran para ejecutar los test de pruebas para nuestros endpoint
+
+## Api utilizadas
 - Se utiliza ipapi para obtener: ciudad, latitud y longitud mediante la ip. 
 https://ipapi.co/api/#introduction
 
@@ -22,4 +25,7 @@ dependencias instaladas
 
 ## Ejecucio del proyecto
 run the app:
-     $ DEBUG=api-weather:* npm start
+     DEBUG=api-weather:* npm start
+
+run the test: 
+     npm run test or npm t
