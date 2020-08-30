@@ -15,7 +15,6 @@ function weatherApi (app){
             const response = await weather.getLocation(ip)
             res.status(200).json({
                 data: response,
-                ip: ip,
                 message: 'location'
             })
         } catch (error) {
@@ -47,7 +46,7 @@ function weatherApi (app){
             const response = await weather.getForecast(ip, city)
             res.status(200).json({
                 data: response,
-                message: 'current'
+                message: 'forecast'
             })
         } catch (error) {
             next(error)
