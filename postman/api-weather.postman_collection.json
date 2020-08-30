@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "772c9506-5729-4016-bf37-03238b2dc67b",
+		"name": "api-weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/v1/location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}v1/location",
+					"host": [
+						"{{url}}v1"
+					],
+					"path": [
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/v1/current/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}v1/current/Toronto",
+					"host": [
+						"{{url}}v1"
+					],
+					"path": [
+						"current",
+						"Toronto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/v1/forecast/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}v1/forecast/Toronto",
+					"host": [
+						"{{url}}v1"
+					],
+					"path": [
+						"forecast",
+						"Toronto"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

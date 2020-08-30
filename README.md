@@ -361,6 +361,14 @@ dependencias instaladas
 - sentry: npm install --save @sentry/node (manejo de log de errores)
 - test: npm i -D supertest mocha sinon proxyquire 
 
+## Heroku Deploy
+- Se subio api a heroku para poder consumirla desde diferentes app
+
+https://api-openweather.herokuapp.com/v1/location
+
+## Postman
+- en el directorio postman se encuentran el json para importar y probar los endpoints
+
 ## Ejecucio del proyecto y test
 run the app:
      DEBUG=api-weather:* npm start
